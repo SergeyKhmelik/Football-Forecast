@@ -1,0 +1,44 @@
+<table class="table">
+    <c:forEach var="player" items="${requestScope.homeAddedPlayers}">
+        <tr>
+            <td>
+                ${player.position}
+            </td>
+
+            <td>
+                ${player.number}
+            </td>
+
+            <td>
+                ${player.firstname} ${player.lastname}
+            </td>
+
+            <td>
+                ${player.rank}
+            </td>
+
+            <td>
+                <div class="dropdown">
+                    <button class="btn btn-link dropdown-toggle" type="button"
+                            id="dropdownHome${player.idPlayer}" data-toggle="dropdown"
+                            aria-expanded="true">
+                        Replace
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu scrollable-menu" role="menu"
+                        aria-labelledby="dropdownHome${player.idPlayer}">
+                        <c:forEach var="replacer" items="${requestScope.homeNotAddedPlayers}">
+                            <li role="presentation">
+                                <a role="menuitem" tabindex="-1" onclick="replace(${player.idPlayer}, ${replacer.idPlayer})">
+                                    ${replacer.position}
+                                    ${replacer.firstname}
+                                    ${replacer.lastname} ${replacer.number}
+                                </a>
+                            </li>
+                        </c:forEach>
+                    </ul>
+                </div>
+            </td>
+        </tr>
+    </c:forEach>
+</table>

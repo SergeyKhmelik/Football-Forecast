@@ -1,0 +1,68 @@
+<div class="modal fade" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+
+
+                <h4 class="modal-title" id="myModalLabel"></h4>
+
+
+            </div>
+            <div class="modal-body">
+                <form id="updateMatchForm" class="form-horizontal">
+                    <fieldset>
+
+                        <input class="hidden" name="action" value="updateMatch" />
+
+
+<!-- ! -->                        <input class="hidden" id="updateMatchIdInput" name="idMatch"  />
+
+
+
+                        <div class="form-group">
+                        <label class="col-md-4 control-label" for="dateUpdateInput">Date</label>
+                            <div class="col-md-5">
+
+
+<!-- ! -->                            <input id="dateUpdateInput" name="date" type="date" class="form-control input-md" />
+
+
+                             <span class="help-block"></span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+<!-- ! -->              <label id="homeTeamUpdateLable" class="col-md-4 control-label" for="homeGoalsInput"></label>
+                        <div class="col-md-4">
+
+
+<!-- ! -->                <input id="homeGoalsInput" name="homeScore" type="number" class="form-control input-md"
+                                   placeholder="${match.homeGoals}" value="${match.homeGoals}"/>
+
+                            <span class="help-block">Home team</span>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+<!-- ! -->                       <label id="guestTeamUpdateLable" class="col-md-4 control-label" for="guestGoalsInput"></label>
+                        <div class="col-md-4">
+
+
+                            <input id="guestGoalsInput" name="guestScore" type="number" class="form-control input-md" />
+                            <span class="help-block">Guest team</span>
+
+
+                        </div>
+                    </div>
+                    </fieldset>
+                </form>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="submitUpdateBtn" class="btn btn-primary">Update</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

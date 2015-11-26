@@ -1,0 +1,59 @@
+<button type="button" class="btn btn-link" data-toggle="modal" data-target="#addMatch">
+    Add match
+</button>
+
+<div class="modal fade" id="addMatch" tabindex="-1" role="dialog" aria-labelledby="addMatchModalLable" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="addMatchModalLable">Adding match</h4>
+            </div>
+            <div class="modal-body">
+                <form id="addMatchForm" class="form-horizontal">
+                    <fieldset>
+
+                        <input class="hidden" name="championship" value="${requestScope.championship.idChampionship}" />
+                        <input class="hidden" name="season" value="${requestScope.season.idSeason}" />
+                        <input class="hidden" name="action" value="addMatch" />
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="homeTeam">Home team</label>
+                            <div class="col-md-4">
+                                <select id="homeTeam" name="homeTeam" class="form-control">
+                                    <c:forEach var="team" items="${requestScope.teams}">
+                                        <option value="${team.idTeam}">${team.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="guestTeam">Guest team</label>
+                            <div class="col-md-4">
+                                <select id="guestTeam" name="guestTeam" class="form-control">
+                                    <c:forEach var="team" items="${requestScope.teams}">
+                                        <option value="${team.idTeam}">${team.name}</option>
+                                    </c:forEach>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="col-md-4 control-label" for="dateInput">Date</label>
+                            <div class="col-md-5">
+                                <input id="dateInput" name="date" type="date" class="form-control input-md"/>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button id="submitAddBtn" class="btn btn-primary">Add match</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

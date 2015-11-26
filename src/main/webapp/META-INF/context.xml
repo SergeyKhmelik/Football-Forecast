@@ -1,0 +1,24 @@
+<Context>
+    <Resource name="jdbc/users"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              username="root" password=""
+              driverClassName="com.mysql.jdbc.Driver"
+              defaultAutoCommit="false"
+              defaultTransactionIsolation="READ_COMMITTED"
+              url="jdbc:mysql://localhost:3306/football_forecast_users"
+              connectionProperties="useUnicode=yes;characterEncoding=utf8;"
+            />
+    <Resource name="jdbc/football"
+              auth="Container"
+              type="javax.sql.DataSource"
+              maxActive="100" maxIdle="30" maxWait="10000"
+              username="root" password=""
+              driverClassName="com.mysql.jdbc.Driver"
+              defaultAutoCommit="false"
+              defaultTransactionIsolation="READ_COMMITTED"
+              url="jdbc:mysql://localhost:3306/football_forecast"
+              connectionProperties="useUnicode=yes;characterEncoding=utf8;"
+            />
+</Context>

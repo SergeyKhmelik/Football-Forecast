@@ -1,0 +1,49 @@
+<%@ include file="/WEB-INF/view/jspf/directive/page.jspf"%>
+<%@ include file="/WEB-INF/view/jspf/directive/taglib.jspf"%>
+
+<nav class="navbar navbar-default navbar-static-top">
+    <div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed"
+                    data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+                    aria-controls="navbar">
+                <span class="sr-only">Toggle navigation</span> <span
+                    class="icon-bar"></span> <span class="icon-bar"></span> <span
+                    class="icon-bar"></span>
+            </button>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+            <ul class="nav navbar-nav">
+                <c:choose>
+                    <c:when test="${fn:contains(pageContext.request.requestURI, '/users')}">
+                        <li class="active"><a href="users">Users</a></li>
+                        <li><a href="permissions">Permissions</a></li>
+                        <li><a href="football">Football</a></li>
+                    </c:when>
+
+                    <c:when test="${fn:contains(pageContext.request.requestURI, '/permissions')}">
+                        <li><a href="users">Users</a></li>
+                        <li class="active"><a href="permissions">Permissions</a></li>
+                        <li><a href="football">Football</a></li>
+                    </c:when>
+
+                    <%--  test="${fn:contains(pageContext.request.requestURI, '/football')}" --%>
+                    <c:when test="${fn:contains(pageContext.request.requestURI, '/football') ||
+                    fn:contains(pageContext.request.requestURI, '/matches') ||
+                    fn:contains(pageContext.request.requestURI, '/players') ||
+                    fn:contains(pageContext.request.requestURI, '/forecast')}">
+                        <li><a href="users">Users</a></li>
+                        <li><a href="permissions">Permissions</a></li>
+                        <li class="active"><a href="football">Football</a></li>
+                    </c:when>
+                </c:choose>
+
+            </ul>
+
+            <ul class="nav navbar-nav navbar-right">
+                <li><a href="profile?id=${sessionScope.user.idUser}">${sessionScope.user.name} ${sessionScope.user.surname}</a>
+                <li><a href="logout">Logout</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>

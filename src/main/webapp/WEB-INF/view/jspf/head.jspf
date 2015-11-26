@@ -1,0 +1,13 @@
+<%@ include file="/WEB-INF/view/jspf/directive/page.jspf" %>
+<%@ include file="/WEB-INF/view/jspf/directive/taglib.jspf" %>
+
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>
+    <c:choose>
+        <c:when test="${empty param.title}">${sessionScope.user.name} ${sessionScope.user.sirname}</c:when>
+        <c:otherwise>${param.title}</c:otherwise>
+    </c:choose>
+</title>
+
+<link rel="stylesheet" type="text/css" media="screen"
+      href="css/bootstrap.min.css"/>
